@@ -20,8 +20,9 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+        # 删除了 version: 9 
+        # action-setup@v4 会自动读取 package.json 中的 packageManager 字段
         with:
-          version: 9
           run_install: false
 
       - name: Get pnpm store directory
