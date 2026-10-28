@@ -46,6 +46,21 @@ jobs:
       - name: Build static HTML
         run: pnpm build
 
+              - name: Build static HTML
+        run: pnpm build
+
+      - name: Bundle into single HTML file
+        run: node scripts/build-singlefile.js
+
+      - name: Upload HTML Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: set-html-app
+          path: |
+            build/
+            set-app.html
+          retention-days: 30
+
       - name: Upload HTML Artifact
         uses: actions/upload-artifact@v4
         with:
